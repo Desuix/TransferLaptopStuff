@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://baos6pkrj02wr"]
+
+[ext_resource type="Texture2D" uid="uid://b0u2femtm6uvp" path="res://art/enemyFlyingAlt_1.png" id="1_y03ms"]
+[ext_resource type="Texture2D" uid="uid://wcmfjlt31306" path="res://art/enemyFlyingAlt_2.png" id="2_pkoub"]
+[ext_resource type="Texture2D" uid="uid://dallj6lc5psxx" path="res://art/enemySwimming_1.png" id="3_5uugg"]
+[ext_resource type="Texture2D" uid="uid://cgu1784y20hjb" path="res://art/enemySwimming_2.png" id="4_bayp2"]
+[ext_resource type="Texture2D" uid="uid://6sh8nr18guec" path="res://art/enemyWalking_1.png" id="5_4lfy0"]
+[ext_resource type="Texture2D" uid="uid://dkqnhmtrvsmgw" path="res://art/enemyWalking_2.png" id="6_5cfe1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f65l6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y03ms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pkoub")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5uugg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bayp2")
+}],
+"loop": true,
+"name": &"swim",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_4lfy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5cfe1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8vm8w"]
+radius = 37.0
+height = 104.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=41335582]
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1366552403]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_f65l6")
+animation = &"fly"
+frame_progress = 0.95983
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=956843781]
+position = Vector2(-2, -1)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8vm8w")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=47240191]
